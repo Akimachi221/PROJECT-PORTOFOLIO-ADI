@@ -1,0 +1,236 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    background-color: #324E7B;
+}
+
+/* General Section Style */
+.section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* OP Section */
+.op {
+    background-color: #324E7B;
+    position: relative;
+    overflow: hidden;
+}
+
+.op-content {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    transition: opacity 0.3s ease;
+    /* biar halus */
+}
+
+.op h1 {
+    font-size: 4rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.pp-op {
+    width: 300px;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.garis-putih {
+    width: 150px;
+    height: 3px;
+    background-color: white;
+    border: none;
+    margin: 20px auto;
+}
+
+/* <!-- Section 2: About Myself --> */
+.about {
+    background-color: #324E7B;
+    padding: 40px;
+    text-align: center;
+}
+
+/* .about-2 {
+    background-color: #86A6DF;
+    text-align: left;   
+    width: 100%;
+    height: 100%;
+    rotate: 30deg;
+} */
+
+.about-section {
+    background-color: #7ea6d6;
+    /* warna biru soft */
+    padding: 60px 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-text {
+    flex: 1 1 400px;
+    color: white;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeSlideUp 1s ease forwards;
+}
+
+.about-text h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    border-bottom: 3px solid white;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.about-text p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+
+/* OP logo media sosial */
+.social-icons {
+    display: flex;
+    /* biar icon sejajar */
+    align-items: center;
+    gap: 10px;
+    /* jarak antar icon */
+}
+
+.social-icons a {
+    text-decoration: none;
+    /* hilangin underline */
+    outline: none;
+    /* hilangin efek biru */
+}
+
+.social-icons img {
+    width: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+    /* animasi zoom pas dihover */
+}
+
+/* END logo media sosial */
+
+.about-image {
+    flex: 1 1 400px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards 0.3s;
+    position: relative;
+    display: inline-block;
+}
+
+.about-image img {
+    max-width: 120%;
+    height: auto;
+}
+
+.main-img {
+    position: relative;
+    z-index: 2;
+    rotate: 15deg;
+}
+
+.shadow-img {
+    position: absolute;
+    top: 15px;
+    /* geser ke bawah */
+    left: 100px;
+    /* geser ke kanan */
+    z-index: 1;
+    width: 10000px;
+    height: 10000px;
+}
+
+/* Animations */
+@keyframes fadeSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-text {
+    max-width: 600px;
+}
+
+#text {
+    max-height: 120px;
+    /* batas awal */
+    overflow: hidden;
+    transition: max-height 0.6s ease, opacity 0.6s ease;
+    line-height: 1.6;
+    color: white;
+    opacity: 0.9;
+}
+
+#text.expanded {
+    max-height: 1000px;
+    /* biar terbuka penuh */
+    opacity: 1;
+}
+
+#toggleBtn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 8px 16px;
+    background-color: #5068A9;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#toggleBtn:hover {
+    background-color: #324E7B;
+    transform: scale(1.05);
+}

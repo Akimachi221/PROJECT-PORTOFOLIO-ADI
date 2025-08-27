@@ -47,17 +47,19 @@ function revealOnScroll() {
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
-// Toggle "Baca Selengkapnya" di Section About
-const text = document.getElementById("text");
-const toggleBtn = document.getElementById("toggleBtn");
+// Toggle untuk semua tombol "Baca Selengkapnya"
+document.querySelectorAll('.toggleBtn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const text = btn.previousElementSibling; // ambil <p> sebelum tombol
+        text.classList.toggle('expanded');
 
-toggleBtn.addEventListener("click", () => {
-    text.classList.toggle("expanded");
-
-    if (text.classList.contains("expanded")) {
-        toggleBtn.textContent = "Tutup";
-    } else {
-        toggleBtn.textContent = "Baca Selengkapnya";
-    }
+        if (text.classList.contains('expanded')) {
+            btn.textContent = 'Tutup';
+        } else {
+            btn.textContent = 'Baca Selengkapnya';
+        }
+    });
 });
+
+
 

@@ -9,7 +9,26 @@ body {
     background-color: #324E7B;
 }
 
-/* General Section Style */
+/* Global */
+.text {
+    max-height: 120px;
+    /* tinggi awal */
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.text.expanded {
+    max-height: 1000px;
+    /* biar cukup nampung semua teks */
+}
+
+/* Global end */
+
+
+
+
+
+/* Section 1 */
 .section {
     height: 100vh;
     display: flex;
@@ -52,7 +71,13 @@ body {
     margin: 20px auto;
 }
 
-/* <!-- Section 2: About Myself --> */
+/* Section 1: END */
+
+
+
+
+
+/* <!-- Section 2 --> */
 .about {
     background-color: #324E7B;
     padding: 40px;
@@ -217,12 +242,57 @@ body {
     opacity: 1;
 }
 
-#toggleBtn {
+#toggleBtn:hover {
+    background-color: #324E7B;
+    transform: scale(1.05);
+}
+
+/* Section 2: END */
+
+
+
+
+
+/* Section 3 */
+#programming {
+    padding: 60px 20px;
+    background-color: #5068A9;
+    text-align: center;
+    color: white;
+}
+
+#programming h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* Text & Button */
+.about-text-programming {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+}
+
+.text {
+    max-height: 120px;
+    /* default teks pendek */
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.text.expanded {
+    max-height: 1000px;
+    /* biar cukup menampung semua teks */
+}
+
+.toggleBtn {
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     padding: 8px 16px;
     background-color: #5068A9;
     border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 20px;
     color: white;
     font-weight: bold;
@@ -230,7 +300,105 @@ body {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#toggleBtn:hover {
+.toggleBtn:hover {
     background-color: #324E7B;
     transform: scale(1.05);
 }
+
+/* Grid */
+.programming-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.program-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.program-card:hover {
+    transform: translateY(-8px);
+}
+
+.program-card img,
+.program-card video {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.program-card p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Section 3: END */
+
+
+
+
+
+/* Section 4 */
+#drawing {
+    padding: 60px 20px;
+    background-color: #3B4A7A;
+    /* warna beda biar kontras */
+    text-align: center;
+}
+
+#drawing h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: bold;
+    color: white;
+}
+
+.about-text-drawing p {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: white;
+}
+
+.drawing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.drawing-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.drawing-card:hover {
+    transform: translateY(-8px);
+}
+
+.drawing-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.drawing-card p {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Section 4: END */

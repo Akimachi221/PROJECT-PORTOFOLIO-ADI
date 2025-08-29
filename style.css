@@ -349,56 +349,94 @@ body {
 /* Section 4 */
 #drawing {
     padding: 60px 20px;
-    background-color: #3B4A7A;
-    /* warna beda biar kontras */
+    background: #86A6DF;
     text-align: center;
+    overflow: hidden;
 }
 
 #drawing h2 {
     font-size: 2.5rem;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-weight: bold;
     color: white;
 }
 
 .about-text-drawing p {
     max-width: 800px;
-    margin: 0 auto 40px;
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: white;
+    margin: 0 auto 40px auto;
+    text-align: center;
 }
 
-.drawing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    max-width: 1000px;
-    margin: auto;
+.drawing-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 40px 0;
+    /* ✨ Tambahin ruang atas bawah biar hover ga kepotong */
 }
 
-.drawing-card {
+.drawing-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scroll-marquee 40s linear infinite;
+    padding: 0 60px;
+    overflow: visible;
+    /* ✨ kasih ruang samping biar gak mentok */
+}
+
+.drawing-track:hover {
+    animation-play-state: paused;
+    /* stop saat hover */
+}
+
+@keyframes scroll-marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+    /* hanya geser separuh track */
+}
+
+.polaroid {
+    flex: 0 0 auto;
+    width: 200px;
     background: white;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 10px 10px 25px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.polaroid img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
     transition: transform 0.3s ease;
 }
 
-.drawing-card:hover {
-    transform: translateY(-8px);
+.polaroid:hover {
+    transform: scale(1.1) translateY(-10px);
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);
+    z-index: 10;
 }
 
-.drawing-card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
+.polaroid:hover img {
+    transform: scale(1.05);
 }
 
-.drawing-card p {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #333;
+.polaroid p {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #555;
+    font-style: italic;
 }
 
 /* Section 4: END */

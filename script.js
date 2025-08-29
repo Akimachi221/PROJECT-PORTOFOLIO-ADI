@@ -43,6 +43,12 @@ function revealOnScroll() {
     });
 }
 
+
+document.querySelectorAll('.polaroid').forEach(el => {
+    observer.observe(el);
+});
+
+
 // Jalankan saat scroll dan saat pertama kali load
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);

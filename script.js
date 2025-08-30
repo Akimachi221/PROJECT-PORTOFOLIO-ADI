@@ -70,28 +70,85 @@ document.querySelectorAll('.toggleBtn').forEach((btn) => {
 
 
 const track = document.querySelector('.anime-track');
+const slides = document.querySelectorAll('.anime-card');
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
-const cards = document.querySelectorAll('.anime-card');
 
-let index = 0;
+let index = 1; // mulai dari slide pertama (setelah clone nanti)
+let isTransitioning = false;
+
+// Clone first & last slide
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+
+firstClone.id = "first-clone";
+lastClone.id = "last-clone";
+
+track.appendChild(firstClone);
+track.insertBefore(lastClone, track.firstChild);
+
+const slideCount = track.children.length;
+track.style.transform = `translateX(-${index * 100}%)`;
 
 function updateSlide() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    track.style.transition = "transform 0.6s ease";
     track.style.transform = `translateX(-${index * 100}%)`;
 }
 
-nextBtn.addEventListener('click', () => {
-    if (index < cards.length - 1) {
+track.addEventListener("transitionend", () => {
+    if (track.children[index].id === "first-clone") {
+        track.style.transition = "none";
+        index = 1;
+        track.style.transform = `translateX(-${index * 100}%)`;
+    }
+    if (track.children[index].id === "last-clone") {
+        track.style.transition = "none";
+        index = slideCount - 2;
+        track.style.transform = `translateX(-${index * 100}%)`;
+    }
+    isTransitioning = false;
+});
+
+nextBtn.addEventListener("click", () => {
+    if (index >= slideCount - 1) return;
+    index++;
+    updateSlide();
+});
+
+prevBtn.addEventListener("click", () => {
+    if (index <= 0) return;
+    index--;
+    updateSlide();
+});
+
+let autoplayInterval; // deklarasi global biar bisa di-clear
+
+// === AUTOPLAY ===
+function startAutoplay() {
+    clearInterval(autoplayInterval); // <--- tambahkan ini
+    autoplayInterval = setInterval(() => {
+        if (index >= slideCount - 1) return;
         index++;
         updateSlide();
-    }
+    }, 4000); // 4 detik
+}
+
+function stopAutoplay() {
+    clearInterval(autoplayInterval); // hentikan interval
+}
+
+startAutoplay(); // jalanin otomatis dari awal
+
+const slidesContent = document.querySelectorAll(
+    '.anime-card, .anime-text, .anime-image, .anime-image img, .anime-text p'
+);
+
+slidesContent.forEach(el => {
+    el.addEventListener("mouseenter", stopAutoplay);   // PC hover
+    el.addEventListener("mouseleave", startAutoplay);
+
+    el.addEventListener("touchstart", stopAutoplay, { passive: true }); // Mobile sentuh
+    el.addEventListener("touchend", startAutoplay);
 });
-
-prevBtn.addEventListener('click', () => {
-    if (index > 0) {
-        index--;
-        updateSlide();
-    }
-});
-
-

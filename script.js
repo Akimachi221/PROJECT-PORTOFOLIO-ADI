@@ -69,3 +69,29 @@ document.querySelectorAll('.toggleBtn').forEach((btn) => {
 
 
 
+const track = document.querySelector('.anime-track');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+const cards = document.querySelectorAll('.anime-card');
+
+let index = 0;
+
+function updateSlide() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+}
+
+nextBtn.addEventListener('click', () => {
+    if (index < cards.length - 1) {
+        index++;
+        updateSlide();
+    }
+});
+
+prevBtn.addEventListener('click', () => {
+    if (index > 0) {
+        index--;
+        updateSlide();
+    }
+});
+
+

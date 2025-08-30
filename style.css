@@ -176,7 +176,7 @@ body {
 }
 
 .about-image img {
-    max-width: 120%;
+    max-width: 100%;
     height: auto;
 }
 
@@ -440,3 +440,109 @@ body {
 }
 
 /* Section 4: END */
+
+
+
+
+/* Section 5 - Anime Part 1 */
+#anime1 {
+    padding: 60px 20px;
+    background: #F4E4EC;
+    text-align: center;
+}
+
+.h2-anime {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Slider wrapper */
+.anime-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Window: untuk menyembunyikan slide di luar area */
+.anime-window {
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Track: semua card sejajar horizontal */
+.anime-track {
+    display: flex;
+    transition: transform 0.6s ease;
+}
+
+/* Card: setiap slide */
+.anime-card {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Layout text + image */
+.anime-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.anime-text {
+    flex: 1 1 400px;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.anime-image {
+    flex: 1 1 30px;
+    text-align: center;
+}
+
+.anime-image p {
+    flex: 1 1 30px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.6;
+    color: #444;
+}
+
+.anime-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease;
+}
+
+.anime-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Tombol navigasi */
+.anime-slider button {
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.anime-slider button:hover {
+    transform: scale(1.2);
+    color: #000;
+}
+
+/* Section 5: END */

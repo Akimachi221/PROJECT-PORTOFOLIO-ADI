@@ -782,3 +782,211 @@ body {
 }
 
 /* Section 8 END */
+
+
+
+/* Section 9 */
+#dream {
+    position: relative;
+    padding: 100px 20px;
+    background: #324E7B;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.dream-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    margin-top: 200px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.dream-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #f9f9f9;
+    margin-bottom: 100px;
+}
+
+/* Decorative floating words */
+.decor {
+    position: absolute;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+    user-select: none;
+    animation: float 6s ease-in-out infinite;
+}
+
+.decor1 {
+    top: 20%;
+    left: 10%;
+    transform: rotate(-15deg);
+    animation-delay: 8s;
+}
+
+.decor2 {
+    bottom: 25%;
+    right: 15%;
+    transform: rotate(10deg);
+    animation-delay: 2s;
+}
+
+.decor3 {
+    top: 60%;
+    left: 15%;
+    transform: rotate(-5deg);
+    animation-delay: 4s;
+}
+
+.decor4 {
+    top: 25%;
+    right: 15%;
+    transform: rotate(10deg);
+    animation-delay: 6s;
+}
+
+
+/* Animasi floating dreamy */
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(var(--rotate, 0deg));
+        filter: blur(0px);
+        opacity: 1;
+    }
+
+    25% {
+        transform: translateY(-10px) rotate(var(--rotate, 0deg));
+        filter: blur(1px);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(var(--rotate, 0deg));
+        filter: blur(2px);
+        opacity: 0.6;
+    }
+
+    75% {
+        transform: translateY(-10px) rotate(var(--rotate, 0deg));
+        filter: blur(1px);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(0) rotate(var(--rotate, 0deg));
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+/* Section 9 END */
+
+
+
+/* Transition Layer */
+.transition-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.transition-bg img {
+    width: 150px;
+    height: auto;
+    transform: scale(1);
+    transition: transform 2s ease, opacity 2s ease;
+}
+
+/* Saat aktif (masuk ke section 10) */
+.transition-bg.active {
+    opacity: 1;
+}
+
+.transition-bg.active img {
+    transform: scale(10);
+    /* jadi besar, seakan menutup layar */
+    opacity: 0;
+    /* hilang perlahan */
+}
+
+/* Final Message hidden dulu */
+#final-message .final-container {
+    opacity: 0;
+    transition: opacity 1.5s ease 1s;
+    /* delay biar muncul setelah transisi */
+}
+
+#final-message.active .final-container {
+    opacity: 1;
+}
+
+/* Transition Layer END */
+
+
+
+/* Section 10 */
+#final-message {
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-image: url('img/final-message/bg.png');
+    background-size: cover;
+    /* supaya menutupi seluruh area */
+    background-position: center;
+    /* supaya gambar berada di tengah */
+    background-repeat: no-repeat;
+    /* jangan diulang */
+}
+
+/* Kontainer teks & gambar */
+.final-container {
+    max-width: 800px;
+    margin-top: 10px;
+    margin: 0 auto;
+    position: relative;
+    /* penting supaya bg-img absolute tetap di dalam container */
+}
+
+
+/* Teks judul */
+.final-title {
+    position: relative;
+    z-index: 1;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Teks paragraf */
+.final-text {
+    position: relative;
+    z-index: 1;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #fff;
+}
+
+/* Optional: text shadow biar terlihat lebih jelas */
+.final-title,
+.final-text {
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Section 10 END */

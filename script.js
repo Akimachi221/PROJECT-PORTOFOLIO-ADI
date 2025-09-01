@@ -152,3 +152,24 @@ slidesContent.forEach(el => {
     el.addEventListener("touchstart", stopAutoplay, { passive: true }); // Mobile sentuh
     el.addEventListener("touchend", startAutoplay);
 });
+
+
+
+const section10 = document.querySelector("#final-message");
+const transitionBg = document.querySelector(".transition-bg");
+
+const observerFinal = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            console.log("MASUK SECTION 10");
+            transitionBg.classList.add("active");
+            section10.classList.add("active");
+        } else {
+            console.log("KELUAR SECTION 10");
+            transitionBg.classList.remove("active");
+            section10.classList.remove("active");
+        }
+    });
+}, { threshold: 0.2 });
+
+observerFinal.observe(section10);

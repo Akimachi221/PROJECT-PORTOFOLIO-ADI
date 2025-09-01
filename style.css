@@ -546,3 +546,239 @@ body {
 }
 
 /* Section 5: END */
+
+
+
+
+
+/* Section 6 - Japanese */
+#japanese {
+    padding: 80px 40px;
+    background: #324E7B;
+    /* biru adem */
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.japanese-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.japanese-text {
+    flex: 1 1 500px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.japanese-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.japanese-images {
+    flex: 1 1 400px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+.japanese-images .circle {
+    width: 150px;
+    /* bisa dilebarkan */
+    height: 200px;
+    /* lebih pendek biar lonjong horizontal */
+    border-radius: 45%;
+    /* tetap 50%, otomatis jadi oval */
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.japanese-images .circle:hover {
+    transform: scale(1.08);
+}
+
+.japanese-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Watermark tulisan Jepang */
+.japanese-watermark {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+}
+
+/* Section 6: END */
+
+
+
+
+/* Section 7 */
+.nasgor-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 100px;
+    background: #86A6DF;
+    color: white;
+    overflow: hidden;
+}
+
+.nasgor-content {
+    max-width: 550px;
+    z-index: 2;
+    text-align: center;
+}
+
+.nasgor-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.nasgor-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.nasgor-images {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.nasgor-img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+    position: absolute;
+}
+
+/* Posisi gambar */
+.nasgor-img.top-left {
+    top: 40px;
+    left: 50px;
+    width: 180px;
+    height: 180px;
+}
+
+.nasgor-img.bottom-left {
+    bottom: 40px;
+    left: -50px;
+}
+
+.nasgor-img.right {
+    width: 320px;
+    height: 320px;
+    top: 100px;
+    right: -60px;
+}
+
+
+/* Section 7: END */
+
+
+
+/* Section 8 */
+#photography {
+    padding: 60px 20px;
+    background: #f8f8f8;
+    text-align: center;
+    color: #333;
+}
+
+.h2-photo {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.photo-intro {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Masonry Layout */
+.photo-grid {
+    column-count: 3;
+    /* jumlah kolom */
+    column-gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.photo-card {
+    display: inline-block;
+    margin: 0 0 20px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+    background: #fff;
+}
+
+.photo-card img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+}
+
+.photo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.photo-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+    .photo-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .photo-grid {
+        column-count: 1;
+    }
+}
+
+.pp-watermark {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Section 8 END */

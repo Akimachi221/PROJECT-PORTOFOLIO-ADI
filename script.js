@@ -173,3 +173,44 @@ const observerFinal = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 
 observerFinal.observe(section10);
+
+
+// Ambil elemen
+const chibiNavbar = document.querySelector('.chibi-navbar');
+const chibiIcon = document.querySelector('.chibi-icon');
+const menuLinks = document.querySelectorAll('.chibi-menu a');
+
+// Load audio pop
+const popSound = new Audio('sounds/pop.mp3');
+
+// Gambar default & saat aktif
+const chibiDefault = 'img/ui/chibi.gif';
+const chibiActive = 'img/ui/chibi-open.png';
+
+// Event klik icon chibi
+chibiIcon.addEventListener('click', () => {
+    chibiNavbar.classList.toggle('active');
+
+    if (chibiNavbar.classList.contains('active')) {
+        // mainkan suara
+        popSound.currentTime = 0;
+        popSound.play();
+
+        // ganti gambar jadi chibi aktif
+        chibiIcon.src = chibiActive;
+    } else {
+        // kembali ke gambar default
+        chibiIcon.src = chibiDefault;
+    }
+});
+
+// Auto close kalau klik link
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        chibiNavbar.classList.remove('active');
+        chibiIcon.src = chibiDefault; // balikin gambar
+    });
+});
+// Tutup kalau klik di luar navbar
+
+

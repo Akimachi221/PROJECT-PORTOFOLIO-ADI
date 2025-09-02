@@ -990,3 +990,283 @@ body {
 }
 
 /* Section 10 END */
+
+
+/* ======================= */
+/* Chibi Navbar Responsive */
+/* ======================= */
+
+/* Default desktop */
+.chibi-navbar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    transition: all 0.6s ease;
+}
+
+/* Icon chibi */
+.chibi-icon {
+    width: 150px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.chibi-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Dropdown menu */
+.chibi-menu {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+
+/* Menu aktif */
+.chibi-navbar.active .chibi-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Hilangkan bullet */
+.chibi-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chibi-menu li {
+    margin: 6px 0;
+}
+
+/* Link style */
+.chibi-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: color 0.25s;
+}
+
+.chibi-menu a:hover {
+    color: #7ea6d6;
+}
+
+/* ======================= */
+/* RESPONSIVE BREAKPOINTS  */
+/* ======================= */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .chibi-navbar {
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .chibi-icon {
+        width: 70px;
+    }
+
+    .chibi-menu {
+        align-items: center;
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .chibi-navbar {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .chibi-icon {
+        width: 60px;
+    }
+
+    /* Override menu jadi full width */
+    .chibi-menu {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        border-radius: 20px 20px 0 0;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+        gap: 15px;
+        align-items: center;
+        text-align: center;
+        transform: translateY(100%);
+        /* sembunyi di bawah layar */
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Saat aktif → slide up */
+    .chibi-navbar.active .chibi-menu {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .chibi-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .chibi-menu li {
+        margin: 10px 0;
+    }
+
+    .chibi-menu a {
+        font-size: 1.1rem;
+        display: block;
+        padding: 10px;
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .chibi-menu a:hover {
+        color: #7ea6d6;
+    }
+}
+
+/* ======================= */
+/* End Chibi Navbar        */
+/* ======================= */
+
+
+
+/* ===================== */
+/* Global Responsive CSS */
+/* ===================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .pp-op {
+        width: 220px;
+    }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) {
+    .section {
+        padding: 40px 15px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .about-container,
+    .anime-container,
+    .japanese-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text,
+    .anime-text,
+    .japanese-text {
+        font-size: 1rem;
+    }
+
+    .about-image img,
+    .anime-image img {
+        max-width: 90%;
+    }
+
+    .nasgor-section {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+
+    .nasgor-content h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    .pp-op {
+        width: 180px;
+    }
+
+    .about-text h1,
+    .about-text h2,
+    .dream-title {
+        font-size: 1.5rem;
+    }
+
+    .programming-grid {
+        grid-template-columns: 1fr;
+        /* 1 kolom saja */
+    }
+
+    .anime-image img {
+        max-width: 100%;
+    }
+
+    .photo-grid {
+        column-count: 1 !important;
+        /* Satu kolom penuh */
+    }
+
+    .nasgor-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .dream-title {
+        font-size: 1.8rem;
+    }
+
+    .dream-text {
+        font-size: 1rem;
+    }
+
+    .final-title {
+        font-size: 1.5rem;
+    }
+
+    .final-text {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+}
+
+/* END */
